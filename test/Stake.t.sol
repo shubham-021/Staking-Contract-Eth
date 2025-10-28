@@ -7,6 +7,8 @@ import {StakeContract} from "../src/Stake.sol";
 contract StakeTest is Test {
     StakeContract s;
 
+    receive() payable external{}
+
     function setUp() public {
         s = new StakeContract();
     }
@@ -15,6 +17,14 @@ contract StakeTest is Test {
         uint value = 10 ether;
         s.stake{value: value}();
         assertEq(s.totalStaked() , value , "ok");
+    }
+
+    function testUnStakeC() public {
+        uint value = 20 ether;
+        s.stake{value:value}();
+        s.unstake(value);
+
+        assert(s.totalStaked() == value/2);
     }
 
     function testUnStake() public {
