@@ -13,5 +13,6 @@ docs/
 # Dotenv file
 .env
 
-#node_module
+#extras
 node_modules
+.github
