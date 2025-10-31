@@ -20,6 +20,8 @@ contract StakeContract {
         require(_value<=stakedEth[msg.sender], "Withdrawal amount must be within limits of your balance");
 
         // buggy line , withdrawing _value but sending only half - setup for upgradablility
+        // two ways you can counter any buggggg in your contract - either fix it or build an upgradable contract from the start
+        // you can not fix since once deployed no change can happen in the contract
         payable(msg.sender).transfer(_value/2);
         totalStaked -= _value/2;
         stakedEth[msg.sender] -= _value; 
