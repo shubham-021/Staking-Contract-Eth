@@ -27,7 +27,9 @@ contract StakeTest is Test {
 
     function testChangingContract() public {
         coin.updateContract(address(0x123));
-        assert(coin.stakingContract() == address(0x123));
+        vm.prank(address(0x123));
+        coin.mint(address(0x345), 10);
+        assert(coin.balanceOf(address(0x345)) == 10);
     }
 
     function testRevertChangingContractForNonOwner() public {
