@@ -30,5 +30,9 @@ contract StakingContract{
     function claimRewards() public {
 
     }
+
+    function balance(address user) public view returns (uint) {
+        return staked[user];
+    }
     
 }

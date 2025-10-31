@@ -34,7 +34,16 @@ contract StakeTest is Test {
         s.unStake(val);
         vm.stopPrank();
 
-        assert(s.staked(user)==0);
+        // assert(s.staked(user)==0);
+        // mapping(address => uint) public staked;
+        // and it’s marked public, Solidity automatically generates a getter function for it.
+        // Solidity creates a function for you, equivalent to:
+        // function staked(address _user) external view returns (uint) {
+        //     return staked[_user];
+        // }
+
+        
+        assert(s.balance(user)==0);
         assert(s.totalStaked()==0);
     }
 }
