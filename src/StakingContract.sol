@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 import "@openzeppelin/token/ERC20/ERC20.sol";
 
-interface IARKATOKEN {
+interface IArkaToken {
     function mint(address to , uint _val) external;
 }
 
@@ -12,7 +12,7 @@ contract StakingContract{
     uint public totalStaked;
     uint public constant REWARD_PER_SEC_PER_ETH = 1; 
 
-    IARKATOKEN public arkaToken;
+    IArkaToken public arkaToken;
 
     struct UserInfo{
         uint stakedAmount;
@@ -22,7 +22,7 @@ contract StakingContract{
 
     mapping(address => UserInfo) public userInfo;
 
-    constructor(IARKATOKEN _token){
+    constructor(IArkaToken _token){
         arkaToken = _token;
     }
 
