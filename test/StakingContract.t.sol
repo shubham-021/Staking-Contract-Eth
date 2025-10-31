@@ -42,7 +42,7 @@ contract StakeTest is Test {
         //     return staked[_user];
         // }
 
-        
+         
         assert(s.balance(user)==0);
         assert(s.totalStaked()==0);
     }
